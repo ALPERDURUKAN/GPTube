@@ -3,7 +3,12 @@ import shutil
 import sys
 import re
 import requests
-from moviepy.editor import VideoFileClip, concatenate_videoclips, AudioFileClip, CompositeAudioClip
+try:
+    # Try MoviePy 2.x imports
+    from moviepy import VideoFileClip, concatenate_videoclips, AudioFileClip, CompositeAudioClip
+except ImportError:
+    # Fall back to MoviePy 1.x imports
+    from moviepy.editor import VideoFileClip, concatenate_videoclips, AudioFileClip, CompositeAudioClip
 
 from lib.video_texts import getyamll,read_config_file,read_random_line
 from lib.APIss import download_file,chatgpt,translateto

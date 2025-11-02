@@ -1,6 +1,12 @@
-import moviepy.editor as mp
-import moviepy.editor as mpe
-from moviepy.editor import *
+try:
+    # Try MoviePy 2.x imports
+    import moviepy as mp
+    from moviepy import *
+except ImportError:
+    # Fall back to MoviePy 1.x imports
+    import moviepy.editor as mp
+    import moviepy.editor as mpe
+    from moviepy.editor import *
 import cv2
 import os
 import requests
