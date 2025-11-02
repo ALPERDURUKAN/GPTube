@@ -78,8 +78,9 @@ def final_video(title,time,language,multi_speaker):
         formatted_prompt = prompt_template.format(title=title, time=time)
         original_text = chatgpt(formatted_prompt)
     except KeyError as e:
-        print(f"Error: Failed to format prompt template. Missing placeholder: {e}")
-        print("Please check that the prompt template in lib/prompt.yaml is correct.")
+        print(f"Error: Failed to format prompt template. Missing or unexpected placeholder: {e}")
+        print("The prompt template should only contain {{title}} and {{time}} placeholders.")
+        print("Please check the 'short_prompt' section in lib/prompt.yaml.")
         sys.exit(1)
     except Exception as e:
         print(f"Error generating video script: {e}")
