@@ -71,7 +71,7 @@ def final_video(title,time,language,multi_speaker):
     print("--------------------------------")
     print(title + " in " + time + " second"+", "+language+", multi speaker : "+multi_speaker)
     print("--------------------------------")
-    original_text = chatgpt(getyamll("short_prompt")).format(title=title,time=time)
+    original_text = chatgpt(getyamll("short_prompt").format(title=title,time=time))
     print(original_text)
     print("--------------------------------")
     download_file(read_random_line("download_list/background_music.txt"), "temp/song.mp3")
