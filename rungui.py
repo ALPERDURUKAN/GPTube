@@ -20,7 +20,7 @@ def save_config():
         update_config_file('config.txt', 'pexels_api', pexels_entry2.get())
         messagebox.showinfo("Run", "program run successfully!")
         root.withdraw()  
-        final_video(topic_entry2.get(), time_entry2.get(), language_combobox2.get(), multi_speaker_var.get())
+        final_video(topic_entry2.get(), time_entry2.get(), language_combobox2.get(), multi_speaker_var2.get())
 
 root = tk.Tk()
 root.title("Configurator")

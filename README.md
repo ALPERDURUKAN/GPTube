@@ -46,7 +46,7 @@ Before you begin, ensure that you have the following prerequisites installed on 
 ### Step 2: install Requirements
 
    ```
-   cd YouTube-video-maker
+   cd GPTube
    ```
    ```
    pip install -r requirements.txt
