@@ -71,7 +71,20 @@ def final_video(title,time,language,multi_speaker):
     print("--------------------------------")
     print(title + " in " + time + " second"+", "+language+", multi speaker : "+multi_speaker)
     print("--------------------------------")
-    original_text = chatgpt(getyamll("short_prompt").format(title=title,time=time))
+    
+    try:
+        # Format the prompt template with title and time BEFORE sending to chatgpt
+        prompt_template = getyamll("short_prompt")
+        formatted_prompt = prompt_template.format(title=title, time=time)
+        original_text = chatgpt(formatted_prompt)
+    except KeyError as e:
+        print(f"Error: Failed to format prompt template. Missing placeholder: {e}")
+        print("Please check that the prompt template in lib/prompt.yaml is correct.")
+        sys.exit(1)
+    except Exception as e:
+        print(f"Error generating video script: {e}")
+        sys.exit(1)
+    
     print(original_text)
     print("--------------------------------")
     download_file(read_random_line("download_list/background_music.txt"), "temp/song.mp3")
